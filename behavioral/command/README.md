@@ -36,57 +36,88 @@ systems and decoupled architectures.
 <img width="571" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/370b19e9-e05c-4438-beb4-c731ad7516ee">
 
 ```python
-class Subject:
-    """Subject class"""
+class Command:
+    '''Command interface'''
 
-    def __init__(self):
-        self._observers = []
-
-    def attach(self, observer):
-        self._observers.append(observer)
-
-    def detach(self, observer):
-        self._observers.remove(observer)
-
-    def notify(self, message):
-        for observer in self._observers:
-            observer.update(message)
-
-
-class Observer:
-    """Observer class"""
-
-    def update(self, message):
+    def execute(self):
         pass
 
 
-class ConcreteObserver(Observer):
-    """Concrete observer class"""
+class Light:
+    '''Receiver class'''
 
-    def __init__(self, name):
-        self._name = name
+    def on(self):
+        print("light is on.")
 
-    def update(self, message):
-        print(f"{self._name} received message: {message}")
+    def off(self):
+        print("light is off.")
+
+    def blow_up(self):
+        print("light is blown up.")
+
+
+class LightOnCommand(Command):
+    '''Concrete command that turns on the light'''
+
+    def __init__(self, light):
+        self.light = light
+
+    def execute(self):
+        return self.light.on()
+
+
+class LightOffCommand(Command):
+    '''Concrete command that turns off the light'''
+
+    def __init__(self, light):
+        self.light = light
+
+    def execute(self):
+        return self.light.off()
+
+
+class LightBlowUpCommand(Command):
+    '''Concrete command that blows up the light'''
+
+    def __init__(self, light):
+        self.light = light
+
+    def execute(self):
+        return self.light.blow_up()
+
+
+class RemoteControl:
+    '''Invoker class'''
+
+    def __init__(self):
+        self.commands = {}
+
+    def set_command(self, slot, command):
+        self.commands[slot] = command
+
+    def press_button(self, slot):
+        if slot in self.commands:
+            self.commands[slot].execute()
 
 
 # Usage example
-subject = Subject()
+'''
+In the example provided, the "client" would typically be the code that utilizes
+the Command pattern to achieve a specific behavior or functionality. In this
+case, the usage example at the bottom of the code can be considered the client
+code. '''
+light = Light()
 
-observer1 = ConcreteObserver("Observer 1")
-observer2 = ConcreteObserver("Observer 2")
-observer3 = ConcreteObserver("Observer 3")
+light_on_command = LightOnCommand(light)
+light_off_command = LightOffCommand(light)
+light_blow_up_command = LightBlowUpCommand(light)
 
-subject.attach(observer1)
-subject.attach(observer2)
-subject.attach(observer3)
+remote_control = RemoteControl()
+remote_control.set_command(0, light_on_command)
+remote_control.set_command(1, light_off_command)
+remote_control.set_command(2, light_blow_up_command)
 
-subject.notify("Hello, observers!")
-
-subject.detach(observer2)
-
-subject.notify("Observer 2 detached")
-
+remote_control.press_button(0)
+remote_control.press_button(1)
+remote_control.press_button(2)
 ```
-
-
