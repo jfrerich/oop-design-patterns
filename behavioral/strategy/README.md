@@ -38,6 +38,9 @@ payment processing logic from the specific payment methods. This flexibility
 enables easy extension with new payment strategies and allows the client to
 choose the appropriate strategy based on different requirements or preferences.
 
+<img width="571" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/1bf72425-27e8-4bf7-829d-d069889e193a">
+
+
 ```python
 class PaymentStrategy:
     """Strategy interface"""
