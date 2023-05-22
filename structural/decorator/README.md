@@ -1,29 +1,46 @@
 In this example, we have the following components:
 
-Coffee is the component interface that defines the operations that concrete coffee classes and decorators must implement.
+- `Coffee` is the component interface that defines the operations that concrete
+  coffee classes and decorators must implement.
 
-SimpleCoffee is a concrete component class that represents a simple coffee.
+- `SimpleCoffee` is a concrete component class that represents a simple coffee.
 
-CoffeeDecorator is an abstract decorator class that inherits from the Coffee component interface. It maintains a reference to an instance of the Coffee interface and provides a default implementation that delegates to the wrapped object.
+- `CoffeeDecorator` is an abstract decorator class that inherits from the
+  `Coffee` component interface. It maintains a reference to an instance of the
+  `Coffee` interface and provides a default implementation that delegates to
+  the wrapped object.
 
-MilkDecorator and SugarDecorator are concrete decorator classes. They inherit from the CoffeeDecorator class and add additional behavior to the coffee.
+- `MilkDecorator` and `SugarDecorator` are concrete decorator classes. They
+  inherit from the `CoffeeDecorator` class and add additional behavior to the
+  coffee.
 
-In the usage example, we create an instance of the SimpleCoffee class, representing a plain coffee. We can then decorate this simple coffee with additional features using the decorator classes.
+In the usage example, we create an instance of the `SimpleCoffee` class,
+representing a plain coffee. We can then decorate this simple coffee with
+additional features using the decorator classes.
 
-We start by creating a MilkDecorator object and passing the SimpleCoffee instance to its constructor. This wraps the simple coffee with the milk decorator, adding the cost and description of milk to the coffee.
+We start by creating a `MilkDecorator` object and passing the `SimpleCoffee`
+instance to its constructor. This wraps the simple coffee with the milk
+decorator, adding the cost and description of milk to the coffee.
 
-Next, we create a SugarDecorator object and pass the previously decorated coffee (milk coffee) to its constructor. This further wraps the coffee with the sugar decorator, adding the cost and description of sugar to the coffee.
+Next, we create a `SugarDecorator` object and pass the previously decorated
+coffee (milk coffee) to its constructor. This further wraps the coffee with the
+sugar decorator, adding the cost and description of sugar to the coffee.
 
-We can then call the get_cost and get_description methods on the decorated coffee objects to retrieve the updated cost and description.
+We can then call the `get_cost` and `get_description` methods on the decorated
+coffee objects to retrieve the updated cost and description.
 
-The Decorator pattern allows us to dynamically add new behavior or features to an object without modifying its underlying class. We can apply multiple decorators in any desired order to achieve the desired combination of features. It provides a flexible and extensible way to enhance the functionality of objects at runtime.
+The Decorator pattern allows us to dynamically add new behavior or features to
+an object without modifying its underlying class. We can apply multiple
+decorators in any desired order to achieve the desired combination of features.
+It provides a flexible and extensible way to enhance the functionality of
+objects at runtime.
 
 <img width="560" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/1087d1b7-f58e-4d89-8a35-160ddd7dad14">
 
 ```python
 from functools import wraps
 
-'''decorator is a function that takes another function and extends the 
+'''decorator is a function that takes another function and extends the
    behavior of the latter function without explicitly modifying it.'''
 
 
