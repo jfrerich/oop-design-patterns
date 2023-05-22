@@ -33,6 +33,8 @@ automatically whenever the subject's state changes. This enables a one-to-many
 relationship between the subject and its observers, facilitating event-driven
 systems and decoupled architectures.
 
+<img width="571" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/370b19e9-e05c-4438-beb4-c731ad7516ee">
+
 ```python
 class Subject:
     """Subject class"""
