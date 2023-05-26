@@ -27,6 +27,9 @@ This design allows you to separate the construction logic from the product
 itself, providing a flexible and extensible way to create complex objects with
 different variations.
 
+<img width="607" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/11b2467f-f4c7-4a74-916d-e20839340c6e">
+
+
 ```python
 class Director:
     def __init__(self, builder):
