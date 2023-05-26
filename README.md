@@ -2,11 +2,16 @@
 
 ## Behavioral
 
-- [Command](behavioral/command/README.md)
+- [command](behavioral/command/README.md)
+- [strategy](behavioral/strategy/README.md)
 
 ## Structural
 
+- [decorator](structural/decorator/README.md)
+
 ## Creational
+
+- [builder](creational/builder/README.md)
 
 ![uml-class-diagram-cheat-sheet](https://github.com/jfrerich/oop-design-patterns/assets/7575921/980ce130-7238-467b-899a-7a9ad54f0aab)
 
