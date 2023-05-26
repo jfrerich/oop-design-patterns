@@ -1,3 +1,5 @@
+# Decorator Pattern
+
 In this example, we have the following components:
 
 - `Coffee` is the component interface that defines the operations that concrete
