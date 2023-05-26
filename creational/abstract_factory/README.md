@@ -30,6 +30,8 @@ MacOS) by using the corresponding factory. The Abstract Factory pattern enables
 the creation of families of related objects while maintaining a consistent
 interface.
 
+<img width="587" alt="image" src="https://github.com/jfrerich/oop-design-patterns/assets/7575921/bf4e3c5d-9bac-4c29-bd42-7f72793a3425">
+
 ```python
 from abc import ABC, abstractmethod
 
