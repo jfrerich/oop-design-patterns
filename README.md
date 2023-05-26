@@ -15,6 +15,7 @@
 ## Creational
 
 - [builder](creational/builder/README.md)
+- [abstract factory](creational/abstract-factory/README.md)
 
 ## UML CheatSheet
 
