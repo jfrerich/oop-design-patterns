@@ -1,3 +1,5 @@
+# Command Pattern
+
 In this example, we have the following components:
 
 - `Subject` represents the subject or the object being observed. It maintains a
